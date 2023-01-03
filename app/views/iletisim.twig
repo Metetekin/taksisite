@@ -1,0 +1,85 @@
+{% include 'header.twig' %}
+
+   <section class="inner-banner">
+            <div class="container">
+                <ul class="thm-breadcrumb">
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><span class="sep">.</span></li>
+                    <li><span class="page-title">İletişim</span></li>
+                </ul><!-- /.thm-breadcrumb -->
+                <h2>Bize Ulaşın</h2>
+            </div><!-- /.container -->
+        </section><!-- /.inner-banner -->
+
+        <section class="contact-form-style-one">
+            <div class="container">
+                <div class="block-title text-center">
+                    <div class="dot-line"></div><!-- /.dot-line -->
+                    <p>Size Hemen Döneceğiz</p>
+                    <h2>Mesaj Bırakın</h2>
+                </div><!-- /.block-title -->
+             <form method="POST" action="">    {% if errorText %}
+            <div class="alert alert-dismissible alert-danger">
+               {{ errorText }}
+            </div>
+            <hr>
+        {% endif %}
+        {% if successText %}
+            <div class="alert alert-dismissible alert-success">
+               {{ successText }}
+            </div>
+            <hr>
+        {% endif %}
+            <div class="row">
+                    
+                
+               <div class="col-lg-4 col-md-6">
+                  <div class="form-group">
+                     <input type="text" name="name" id="name" class="form-control" required data-error="Lütfen ad soyad yazınız" placeholder="Ad Soyad" required>
+                     <div class="help-block with-errors"></div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-6">
+                  <div class="form-group">
+                     <input type="email" name="email" id="email" class="form-control" required data-error="Lütfen e-posta adresi yazınız" placeholder="E-Posta Adresi" required>
+                     <div class="help-block with-errors"></div>
+                  </div>
+               </div>
+               <div class="col-lg-4 col-md-12">
+                  <div class="form-group">
+                     <input type="text" name="telephone" id="phone_number" required data-error="Lütfen telefon numarası yazınız" class="form-control" placeholder="Telefon Numarası" required>
+                     <div class="help-block with-errors"></div>
+                  </div>
+               </div>
+               <div class="col-md-12 col-lg-12">
+                  <div class="form-group">
+                     <input type="text" name="subject" id="phone_number" required data-error="Lütfen mesaj başlığı yazınız" class="form-control" placeholder="Mesaj Başlığı" required>
+                     <div class="help-block with-errors"></div>
+                  </div>
+               </div>
+               <div class="col-md-12 col-lg-12">
+                  <div class="form-group">
+                     <textarea name="message" class="form-control" id="message" rows="6" required data-error="Lütfen mesaj içeriği yazınız" placeholder="Mesaj İçeriği" required></textarea>
+                     <div class="help-block with-errors"></div>
+                  </div>
+               </div>
+               
+                  {% if captcha %}
+                    <div class="form-group">
+                      <div class="g-recaptcha" data-sitekey="{{ captchaKey }}"></div>
+                    </div>
+                  {% endif %}
+
+               
+               <div class="col-md-12 col-lg-12">
+                  <button type="submit" class="default-btn">Mesajı Gönder</button>
+                  <div class="clearfix"></div>
+               </div>
+            </div>
+         </form>
+            </div><!-- /.container -->
+        </section><!-- /.contact-form-style-one -->
+
+<script type="text/javascript" src="https://www.google.com/recaptcha/api.js"></script>
+
+{% include 'footer.twig' %}

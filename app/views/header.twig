@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <base href="{{ site['url'] }}/">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>{{ title }}</title>
+      <meta name="keywords" content="{{ keywords }}">
+      <meta name="description" content="{{ description }}">
+      {% if site['favicon'] %}
+      <link rel="shortcut icon" type="image/ico" href="{{ site['favicon'] }}" />
+      {% endif %}
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+
+<body>
+    <div class="preloader"></div><!-- /.preloader -->
+    <div class="page-wrapper">
+        <header class="site-header header-one">
+            <div class="top-bar">
+                <div class="container">
+                    <div class="left-block">
+                        <a href="tel:{{ settings['site_telephone'] }}"><i class="fas fa-phone"></i> {{ settings['site_telephone'] }}</a>
+                        <a href="mailto:{{ settings['site_mail'] }}"><i class="fa fa-envelope"></i> {{ settings['site_mail'] }}</a>
+                    </div><!-- /.left-block -->
+                    <div class="logo-block">
+                        <a href="/"><img src="{{ site['logo'] }}" alt="Awesome Image" /></a>
+                    </div><!-- /.logo-block -->
+                    <div class="social-block">
+                        <a href="{{ settings['twitter'] }}"><i class="fa fa-twitter"></i></a>
+                        <a href="{{ settings['facebook'] }}"><i class="fa fa-facebook-f"></i></a>
+                        <a href="{{ settings['instagram'] }}"><i class="fa fa-instagram"></i></a>
+                        <a href="{{ settings['linkedin'] }}"><i class="fa fa-linkedin"></i></a>
+                    </div><!-- /.social-block -->
+                </div><!-- /.container -->
+            </div><!-- /.top-bar -->
+            <nav class="navbar navbar-expand-lg navbar-light header-navigation stricky">
+                <div class="container clearfix">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="logo-box clearfix">
+                        <button class="menu-toggler" data-target="#main-nav-bar">
+                            <span class="fa fa-bars"></span>
+                        </button>
+                    </div><!-- /.logo-box -->
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="main-navigation" id="main-nav-bar">
+                        <ul class="navigation-box">
+                            <li class=" {% if active_menu == "home" %} current {% endif %}  ">
+                                <a href="/">Ana Sayfa</a>
+                            </li>
+                            <li class="{% if active_menu == "hakkimizda" %} current {% endif %} "><a href="hakkimizda">Hakkımızda</a></li>
+                            <li class="{% if active_menu == "hizmetler" %} current {% endif %}">
+                                <a href="#" >Hizmetlerimiz</a>
+                                <ul class="sub-menu">
+                                    {% for service in serviceList %}
+                                        <li><a href="hizmetler/{{ service['page_get'] }}">{{ service['page_name'] }}</a></li>
+                                    {% endfor %}
+                                </ul><!-- /.sub-menu -->
+                            </li>
+                            <li class="{% if active_menu == "yazilar" %} current {% endif %}"><a href="yazilar">Blog</a></li>
+                            <li class="{% if active_menu == "iletisim" %} current {% endif %}"><a href="iletisim">İletişim</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                    <div class="right-side-box">
+                        <a href="tel:{{ settings['site_telephone'] }}" class="contact-btn-block">
+                            <span class="icon-block">
+                                <i class="fas fa-phone"></i> 
+                            </span>
+                            <span class="text-block">
+                                {{ settings['site_telephone'] }}
+                                <span class="tag-line">Telefon Numaramız</span>
+                            </span>
+                        </a>
+                    </div><!-- /.right-side-box -->
+                </div>
+                <!-- /.container -->
+            </nav>
+        </header><!-- /.site-header header-one -->

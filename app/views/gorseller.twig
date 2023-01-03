@@ -1,0 +1,39 @@
+{% include 'header.twig' %}
+
+<section class="page-title-area">
+   <div class="d-table">
+      <div class="d-table-cell">
+         <div class="container">
+            <div class="page-title-content">
+               <h1>Galeri / Görseller</h1>
+               <ul class="back-to-home">
+                  <li><a href="index/">Ana Sayfa</a></li>
+                  <li>Görseller</li>
+               </ul>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+<section class="services-details-section ptb-100">
+   <div class="container">
+      <div class="row">
+        
+        {% for file in fileList %}  
+         <div class="col-lg-6 col-md-6">
+            <div class="main-img">
+               <img src="{{ file['file_url'] }}" alt="{{ file['file_name'] }}">
+               <hr>
+               <center><h5>{{ file['file_name'] }}</h5></center>
+            </div>
+         </div>
+        {% endfor %} 
+        
+        
+      </div>
+   </div>
+   </div>
+</section>
+
+{% include 'footer.twig' %}
+

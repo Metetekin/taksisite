@@ -1,0 +1,44 @@
+{% include 'header.twig' %}
+
+
+   <section class="inner-banner">
+            <div class="container">
+                <ul class="thm-breadcrumb">
+                    <li><a href="/">Ana Sayfa</a></li>
+                    <li><span class="sep">.</span></li>
+                    <li><span class="page-title">Blog</span></li>
+                </ul><!-- /.thm-breadcrumb -->
+                <h2>Yazılar</h2>
+            </div><!-- /.container -->
+        </section><!-- /.inner-banner -->
+        <section class="blog-style-one blog-page">
+            <div class="container">
+                <div class="row">
+                    
+                {% for blog in blogList %}  
+                    <div class="col-xl-6 col-lg-12">
+                        <div class="single-blog-style-one">
+                            <div class="image-block">
+                                <div class="inner-block">
+                                    <a href="yazilar/{{ blog['page_get'] }}"><i class="fa fa-link"></i></a>
+                                    <img src="{{ blog['page_image'] }}" alt="Awesome Image" />
+                                </div><!-- /.inner-block -->
+                            </div><!-- /.image-block -->
+                            <div class="text-block">
+                                <div class="meta-info">
+                                    <a href="#" class="date-block"> {{ blog['page_date'] }}</a>
+                                    <a href="#"><i class="fa fa-user"></i> Yönetici</a>
+                                </div><!-- /.meta-info -->
+                                <h3><a href="yazilar/{{ blog['page_get'] }}">{{ blog['page_name'] }}</a></h3>
+                                <p>Blog yazılarımızın tamamını okumak için görsele  tıklayınız.</p>
+                            </div><!-- /.text-block -->
+                        </div><!-- /.single-blog-style-one -->
+                    </div><!-- /.col-xl-6 col-lg-12 -->
+                {% endfor %} 
+
+                </div><!-- /.row -->
+            
+            </div><!-- /.container -->
+        </section><!-- /.blog-style-one -->
+
+{% include 'footer.twig' %}

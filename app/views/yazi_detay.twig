@@ -1,0 +1,24 @@
+{% include 'header.twig' %}
+
+   <section class="inner-banner">
+            <div class="container">
+                <ul class="thm-breadcrumb">
+                    <li><a href="yazilar">Yazılar</a></li>
+                    <li><span class="sep">.</span></li>
+                    <li><span class="page-title">{{ page['page_name'] }}</span></li>
+                </ul><!-- /.thm-breadcrumb -->
+                <h2>{{ page['page_name'] }}</h2>
+            </div><!-- /.container -->
+        </section><!-- /.inner-banner -->
+
+        <section class="contact-form-style-one">
+            <div class="container">
+    <div class="col-lg-12">
+                        {{ page['page_content'] }}
+         </div>
+            </div><!-- /.container -->
+        </section><!-- /.contact-form-style-one -->
+
+
+
+{% include 'footer.twig' %}
